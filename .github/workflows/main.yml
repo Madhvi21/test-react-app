@@ -18,9 +18,9 @@ jobs:
     - run: pod install
       working-directory: ios
       name: Install pod dependencies
-  
+    - run: ls ios/
     - name: Build iOS (debug)
-      #run: "xcodebuild archive -scheme firstapp -project ios/firstapp.xcodeproj -configuration Debug -archivePath ios/"
+     # run: "xcodebuild archive -scheme firstapp -project ios/firstapp.xcodeproj -configuration Debug -archivePath ios/ "
       run:  "xcodebuild -target $(GITHUB_WORKSPACE)/ios/firstapp.xcodeproj -scheme firstapp -configuration Debug -sdk iphoneos  ONLY_ACTIVE_ARCH=NO"
       
     
