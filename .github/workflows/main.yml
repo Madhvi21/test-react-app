@@ -17,5 +17,5 @@ jobs:
       name: Install pod dependencies
   
     - name: Build iOS (debug)
-      run: "xcodebuild clean build -scheme SDK -project firstapp.xcodeproj -configuration Release -sdk iphoneos -derivedDataPath derived_data ARCHS=arm64 ONLY_ACTIVE_ARCH=NO CODE_SIGNING_ALLOWED=NO"
+      run: "xcodebuild clean build -scheme SDK -project firstapp.xcodeproj -configuration Release -sdk iphoneos -derivedDataPath ios ARCHS=arm64 ONLY_ACTIVE_ARCH=NO CODE_SIGNING_ALLOWED=NO"
      # run:  "xcodebuild -target ‘ios/firstapp.xcodeproj’ -scheme ‘firstapp‘ -configuration “Debug” -sdk iphoneos  CONFIGURATION_BUILD_DIR=’ios‘ ONLY_ACTIVE_ARCH=NO"
