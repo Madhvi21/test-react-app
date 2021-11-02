@@ -17,5 +17,5 @@ jobs:
       name: Install pod dependencies
   
     - name: Build iOS (debug)
-     
-      run:  "xcodebuild -target ios/firstapp.xcodeproj -scheme firstapp -configuration Debug -sdk iphoneos  ONLY_ACTIVE_ARCH=NO"
+      run: "xcodebuild archive -scheme firstapp -project ios/firstapp.xcodeproj -configuration Debug -archivePath ios/"
+     # run:  "xcodebuild -target ios/firstapp.xcodeproj -scheme firstapp -configuration Debug -sdk iphoneos  ONLY_ACTIVE_ARCH=NO"
