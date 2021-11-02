@@ -17,8 +17,17 @@ jobs:
       name: Install pod dependencies
   
     - name: Build iOS (debug)
-      run: "xcodebuild -project ios/firstapp.xcodeproj -scheme firstapp clean -sdk iphoneos -configuration Release -UseModernBuildSystem=NO  CODE_SIGNING_ALLOWED=NO archiveDataPath DerivedData/Archive/ios/ archive"
+      run: |
+       xcodebuild -project ios/firstapp.xcodeproj -scheme firstapp clean  \
+        -configuration Release -sdk iphoneos \
+        -derivedDataPath DerivedData \
+        -archiveDataPath DerivedData/Archive/ios/ archive
+        #-UseModernBuildSystem=NO  CODE_SIGNING_ALLOWED=NO 
       #run: "xcodebuild -project ios/firstapp.xcodeproj -scheme firstapp clean -sdk iphoneos -configuration Release -UseModernBuildSystem=NO  CODE_SIGNING_ALLOWED=NO derivedDataPath DerivedData archiveDataPath DerivedData/Archive/ios/ archive"
     - name: export archive
-      run: "xcodebuild -exportArchive -archiveDataPath DerivedData/Archive/ios/*.xcarchive exportOptionsPlist provisioning/App-Store.plist exportPath DerivedData/ipa"
+      run: |
+       xcodebuild -exportArchive \
+       -archiveDataPath DerivedData/Archive/ios/firstapp.xcarchive \
+       -exportOptionsPlist provisioning/App-Store.plist \
+       -exportPath DerivedData/ipa"
       
