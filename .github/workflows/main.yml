@@ -7,7 +7,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         path: main
-    - run: ls main/ios
+    - run: ls ios
     - run: cd main
     - name: Use Node.js
       uses: actions/setup-node@v1
@@ -18,9 +18,9 @@ jobs:
       
     - run: xcode-select -p
     - run: pod install
-      working-directory: main/ios
+      working-directory: ios
       name: Install pod dependencies
-    - run: ls main/ios
+    - run: ls ios
     - name: Build iOS (debug)
      # run: "xcodebuild archive -scheme firstapp -project ios/firstapp.xcodeproj -configuration Debug -archivePath ios/ "
       run:  "xcodebuild -target $(GITHUB_WORKSPACE)/ios/firstapp.xcodeproj -scheme firstapp -configuration Debug -sdk iphoneos  ONLY_ACTIVE_ARCH=NO"
