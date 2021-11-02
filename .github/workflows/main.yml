@@ -6,7 +6,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        path: ${GITHUB_WORKSPACE}
+        path: main
     - run: ls
     - name: Use Node.js
       uses: actions/setup-node@v1
