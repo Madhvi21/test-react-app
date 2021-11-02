@@ -17,5 +17,12 @@ jobs:
       name: Install pod dependencies
   
     - name: Build iOS (debug)
-     
-      run:  "xcodebuild -target ‘ios/firstapp.xcodeproj’ -scheme ‘firstapp‘ -configuration “Debug” -sdk iphoneos -arch “armv7 armv7s” CONFIGURATION_BUILD_DIR=’TestBuild‘ ONLY_ACTIVE_ARCH=NO"
+      run: "xcodebuild -project ios/firstapp.xcodeproj -scheme firstapp clean -sdk iphoneos -configuration Release -UseModernBuildSystem=NO  CODE_SIGNING_ALLOWED=NO -archivePath ios/ archive"
+    - name: export archive
+      run: "derivedDataPath DerivedData -archiveDataPath DerivedData/Archive/ios/ archive"
+    - name: Export Archive
+      run: "xcodebuild -exportArchive -archiveDataPath DerivedData/Archive/ios/*.xcarchive exportOptionsPlist provisioning/App-Store.plist exportPath DerivedData/ipa"
+ 
+      
+     # "xcodebuild -exportArchive ios/*.xcarchive -exportPath iso/"
+      
