@@ -5,11 +5,14 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        path: $(GITHUB_WORKSPACE)
+    - run: ls
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
         node-version: 14.x
-   
+    
     - run: npm install
     - run: xcode-select -p
     - run: pod install
@@ -17,5 +20,7 @@ jobs:
       name: Install pod dependencies
   
     - name: Build iOS (debug)
-      run: "xcodebuild archive -scheme firstapp -project ios/firstapp.xcodeproj -configuration Debug -archivePath ios/"
-     # run:  "xcodebuild -target ios/firstapp.xcodeproj -scheme firstapp -configuration Debug -sdk iphoneos  ONLY_ACTIVE_ARCH=NO"
+      #run: "xcodebuild archive -scheme firstapp -project ios/firstapp.xcodeproj -configuration Debug -archivePath ios/"
+      run:  "xcodebuild -target $(GITHUB_WORKSPACE)/ios/firstapp.xcodeproj -scheme firstapp -configuration Debug -sdk iphoneos  ONLY_ACTIVE_ARCH=NO"
+      
+    
