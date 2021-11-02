@@ -8,12 +8,14 @@ jobs:
       with:
         path: main
     - run: ls main/ios
+    - run: cd main
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
         node-version: 14.x
     
-    - run: npm install
+    - run: npm install 
+      
     - run: xcode-select -p
     - run: pod install
       working-directory: main/ios
