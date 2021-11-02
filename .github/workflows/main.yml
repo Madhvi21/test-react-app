@@ -16,7 +16,8 @@ jobs:
     
     - run: npm install
       working-directory: main
-      
+    - run: ls main
+    - run: ls main/ios
     - run: xcode-select -p
     - run: pod install
       working-directory: main/ios
