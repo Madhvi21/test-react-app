@@ -28,7 +28,7 @@ jobs:
       working-directory:  master/ios
       run: |
        xcodebuild -workspace firstapp.xcworkspace -scheme firstapp clean  \
-        -configuration Release -sdk iphonesimulator* archive -archivePath firstapp.xcarchive \
+        -configuration Release -sdk iphoneos archive -archivePath firstapp.xcarchive \
         -UseModernBuildSystem=NO  CODE_SIGNING_ALLOWED=NO 
       #run: "xcodebuild -project firstapp.xcodeproj -scheme firstapp clean -sdk iphoneos -configuration Release -UseModernBuildSystem=NO  CODE_SIGNING_ALLOWED=NO derivedDataPath DerivedData archiveDataPath DerivedData/Archive/ios/ archive"
 #     - name: export archive
