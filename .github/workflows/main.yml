@@ -21,7 +21,7 @@ jobs:
   
     - name: Build iOS (debug)
       run: |
-       xcodebuild -project ios/ftest-react-app.xcodeproj -scheme test-react-app clean  \
+       xcodebuild -project ios/test-react-app.xcodeproj -scheme test-react-app clean  \
         -configuration Release -sdk iphoneos archive -archivePath test-react-app.xcarchive \
         #-derivedDataPath DerivedData  \
         #-archiveDataPath DerivedData/Archive/ios/ archive
