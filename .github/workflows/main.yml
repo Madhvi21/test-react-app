@@ -1,10 +1,14 @@
 name: iOS
+
 on: [push, pull_request]
 jobs:
   build:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        path: master
+    - run: ls master/ios
     - name: Use Node.js
       uses: actions/setup-node@v1
       with:
@@ -19,8 +23,9 @@ jobs:
        cd ios \
        ls
       name: Install pod dependencies
-  
+    - run: ls master/ios
     - name: Build iOS (debug)
+      working-directory:  master/ios
       run: |
        xcodebuild -project ios/firstapp.xcodeproj -scheme firstapp clean  \
         -configuration Release -sdk iphoneos archive -archivePath firstapp.xcarchive \
@@ -29,7 +34,9 @@ jobs:
         #-UseModernBuildSystem=NO  CODE_SIGNING_ALLOWED=NO 
       #run: "xcodebuild -project firstapp.xcodeproj -scheme firstapp clean -sdk iphoneos -configuration Release -UseModernBuildSystem=NO  CODE_SIGNING_ALLOWED=NO derivedDataPath DerivedData archiveDataPath DerivedData/Archive/ios/ archive"
     - name: export archive
+      working-directory:  master/ios
       run: |
+       ls mater/ios
        xcodebuild -exportArchive \
        #-archiveDataPath DerivedData/Archive/ios/firstapp.xcarchive \
        -archiveDataPath firstapp.xcarchive \
