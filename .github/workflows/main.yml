@@ -25,8 +25,7 @@ jobs:
     - run: ls main/ios
     - name: Build iOS (debug)
      # run: "xcodebuild archive -scheme firstapp -project ios/firstapp.xcodeproj -configuration Debug -archivePath ios/ "
-      run:  |
-       cd main/ios
-       "xcodebuild -target firstapp.xcodeproj -scheme firstapp -configuration Debug -sdk iphoneos  ONLY_ACTIVE_ARCH=NO"
+      working-directory: main/ios
+      run:   "xcodebuild -target firstapp.xcodeproj -scheme firstapp -configuration Debug -sdk iphoneos  ONLY_ACTIVE_ARCH=NO"
       
     
