@@ -26,6 +26,6 @@ jobs:
     - name: Build iOS (debug)
      # run: "xcodebuild archive -scheme firstapp -project ios/firstapp.xcodeproj -configuration Debug -archivePath ios/ "
       working-directory: main/ios
-      run:   "xcodebuild -target firstapp.xcodeproj -scheme firstapp -configuration Debug -sdk iphoneos  ONLY_ACTIVE_ARCH=NO CODE_SIGNING_ALLOWED=NO"
+      run:   "xcodebuild -project firstapp.xcodeproj -scheme firstapp -configuration Debug -sdk iphoneos  ONLY_ACTIVE_ARCH=NO CODE_SIGNING_ALLOWED=NO"
       
     
