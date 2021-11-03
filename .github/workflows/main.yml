@@ -19,9 +19,9 @@ jobs:
     - run: xcode-select -p
     - run: pod install
       working-directory:  master/ios
-    - run: |
-       cd ios \
-       ls
+#     - run: |
+#        cd ios \
+#        ls
       name: Install pod dependencies
     - run: ls master/ios
     - name: Build iOS (debug)
