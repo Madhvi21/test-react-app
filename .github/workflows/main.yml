@@ -23,10 +23,7 @@ jobs:
       working-directory: main/ios
       name: Install pod dependencies
     - run: ls main/ios
-    - uses: actions/upload-artifact@v2
-      with:
-        name: firstapptest
-        path: main/ios/**
+  
     - name: Build iOS (debug)
       #run: "xcodebuild archive -scheme firstapp -project ios/firstapp.xcodeproj -configuration Debug -archivePath ios/ "
       working-directory: main/ios
