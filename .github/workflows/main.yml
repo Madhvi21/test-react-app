@@ -27,7 +27,7 @@ jobs:
     - name: Build iOS (debug)
       #run: "xcodebuild archive -scheme firstapp -project ios/firstapp.xcodeproj -configuration Debug -archivePath ios/ "
       working-directory: main/ios
-      run:   "xcodebuild archive -workspace firstapp.xcworkspace -scheme firstapp -configuration Debug -sdk iphoneos  ONLY_ACTIVE_ARCH=NO CODE_SIGNING_ALLOWED=NO -archivePath ios/main/firstapp.xcarchive"
+      run:   "xcodebuild archive -workspace firstapp.xcworkspace -scheme firstapp -configuration Debug -sdk iphonesimulator  ONLY_ACTIVE_ARCH=NO CODE_SIGNING_ALLOWED=NO -archivePath ios/main/firstapp.xcarchive"
 
       #run:  "xcodebuild -workspace firstapp.xcworkspace -scheme firstapp clean archive -sdk iphoneos -configuration Release -UseModernBuildSystem=NO -archivePath firstapp.xcarchive CODE_SIGNING_ALLOWED=NO"
       #"xcodebuild archive -workspace firstapp.xcworkspace -scheme firstapp -configuration Debug -sdk iphoneos  ONLY_ACTIVE_ARCH=NO CODE_SIGNING_ALLOWED=NO -archivePath firstapp.xcarchive"
