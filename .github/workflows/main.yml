@@ -36,6 +36,6 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: firstapp
-        path: ios/main/firstapp.xcarchive
+        path: main/ios/firstapp.xcarchive
 
 
