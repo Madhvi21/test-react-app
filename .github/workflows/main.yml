@@ -27,7 +27,7 @@ jobs:
     - name: Build iOS (debug)
       working-directory:  master/ios
       run: |
-       xcodebuild -project master/ios/firstapp.xcodeproj -scheme firstapp clean  \
+       xcodebuild -project firstapp.xcodeproj -scheme firstapp clean  \
         -configuration Release -sdk iphoneos archive -archivePath firstapp.xcarchive \
         #-derivedDataPath DerivedData  \
         #-archiveDataPath DerivedData/Archive/ios/ archive
