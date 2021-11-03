@@ -21,8 +21,8 @@ jobs:
   
     - name: Build iOS (debug)
       run: |
-       xcodebuild -project ios/firstapp.xcodeproj -scheme firstapp clean  \
-        -configuration Release -sdk iphoneos archive -archivePath firstapp.xcarchive \
+       xcodebuild -project ios/ftest-react-app.xcodeproj -scheme test-react-app clean  \
+        -configuration Release -sdk iphoneos archive -archivePath test-react-app.xcarchive \
         #-derivedDataPath DerivedData  \
         #-archiveDataPath DerivedData/Archive/ios/ archive
         #-UseModernBuildSystem=NO  CODE_SIGNING_ALLOWED=NO 
@@ -30,8 +30,8 @@ jobs:
     - name: export archive
       run: |
        xcodebuild -exportArchive \
-       #-archiveDataPath DerivedData/Archive/ios/firstapp.xcarchive \
-       -archiveDataPath firstapp.xcarchive \
+       #-archiveDataPath DerivedData/Archive/ios/test-react-app.xcarchive \
+       -archiveDataPath test-react-app.xcarchive \
        -exportOptionsPlist provisioning/App-Store.plist \
-       -exportPath firstapp
+       -exportPath test-react-app
       
