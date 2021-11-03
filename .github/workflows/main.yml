@@ -19,7 +19,7 @@ jobs:
     - name: Xcode
       uses: maxim-lobanov/setup-xcode@v1
       with:
-        xcode-version: '11.0'
+        xcode-version: '11.2.1'
     #- run: xcode-select -p
     - run: pod install
       working-directory:  master/ios
