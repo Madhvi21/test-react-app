@@ -12,7 +12,8 @@ jobs:
         node-version: 14.x
     
     - run: npm install
-
+    - run: ls 
+    - run: ls ios/
     - run: xcode-select -p
     - run: pod install
       working-directory: ios
