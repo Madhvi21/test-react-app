@@ -24,10 +24,17 @@ jobs:
       run:  "xcodebuild -workspace ios/firstapp.xcworkspace -scheme firstapp -configuration Debug -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO CODE_SIGNING_ALLOWED=NO -derivedDataPath DerivedData -archivePath DerivedData/Archive/firstapp archive"
 
     - run: ls DerivedData/Archive/
-    - run: cp ios/*.jsbundle DerivedData/Archive/Product/Applications/firstapp.app/
+    
+    - name: Copy file
+  # You may pin to the exact commit or the version.
+  # uses: canastro/copy-action@7ddff6fc153a2ea2cd0fb88ed9750544c051e399
+      uses: canastro/copy-action@0.0.2
+    # Source file
+    source: ios/*.jsbundle
+    # Target file
+    target: DerivedData/Archive/
     
     - uses: actions/upload-artifact@v2
       with:
         name: my-artifact
         path: DerivedData/Archive/
-    
